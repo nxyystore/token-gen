@@ -20,6 +20,8 @@
 ## Screenshot
 ![picture](github_assets/token-gen-screenshot.png)
 
+## Proxies
+We recommend https://nullproxies.com/ for the most seemless expierence.
 
 ## Features 
 - **`Broswer Based Hcaptcha Solving`** - Browser Based Hcaptcha Solving on own html file
