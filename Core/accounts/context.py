@@ -42,7 +42,6 @@ class TitleBarStats:
 
     def mark_valid(self):
         self.token_generated += 1
-        self.ev_tokens += 1
         self.consecutive_failures = 0
         self.soft_flag_hits = 0
         self._mark_time()
