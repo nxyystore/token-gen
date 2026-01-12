@@ -20,7 +20,7 @@ class Solver:
         r = requests.get(
             "http://127.0.0.1:5001/solve",
             params=params,
-            timeout=10,
+            timeout=15,
         )
         r.raise_for_status()
         return r.json()["taskid"]
