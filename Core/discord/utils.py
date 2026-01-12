@@ -11,13 +11,13 @@ from requests import RequestException
 class DiscordUtils:
     
     @staticmethod
-    def get_fingerprint(dcfduid, sdcfduid, session):
+    def get_fingerprint(dcfduid, sdcfduid, cfuvid, session):
         headers = {
             "accept": "text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9",
             "accept-encoding": "gzip, deflate, br",
             "accept-language": "en-US,en;q=0.9",
-            "cookie": f"__dcfduid={dcfduid}; __sdcfduid={sdcfduid};",
-            "sec-ch-ua": '".Not/A)Brand";v="99", "Google Chrome";v="103", "Chromium";v="103"',
+            "cookie": f"__dcfduid={dcfduid}; __sdcfduid={sdcfduid}; _cfuvid={cfuvid};",
+            "sec-ch-ua": '"Google Chrome";v="143", "Chromium";v="143", "Not A(Brand";v="24"',
             "sec-ch-ua-mobile": "?0",
             "sec-ch-ua-platform": '"Windows"',
             "sec-fetch-dest": "document",
@@ -39,7 +39,8 @@ class DiscordUtils:
         cookiess = session.cookies.get_dict()
         dcfduid = cookiess.get("__dcfduid")
         sdcfduid = cookiess.get("__sdcfduid")
-        return dcfduid, sdcfduid
+        cfuvid = cookiess.get("_cfuvid")
+        return dcfduid, sdcfduid, cfuvid
 
     @staticmethod
     def get_web() -> int:
